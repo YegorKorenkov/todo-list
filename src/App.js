@@ -12,6 +12,7 @@ export default class App extends Component {
 
 
   addTodo(todoValue) {
+    
     if (todoValue.trim()) {
       this.setState({
         todoValue: "",
@@ -21,7 +22,6 @@ export default class App extends Component {
       alert("Write something");
       this.setState({todoValue: ""})
     }
-    
   }
 
   removeTodo(todoKey) {
@@ -29,29 +29,10 @@ export default class App extends Component {
   }
 
   todoChecked = (todo, key) => {
-    
     const todos = [...this.state.todos]
-    const todoCheck = {...todos}
-    const xxx = todo.check
-    todoCheck[key].check = !xxx
-    todos[key] = todoCheck[key]
-    
+    const isTodoCheck = todo.check
+    todos[key].check = !isTodoCheck
 
-    // const todos = [...this.state.todos]
-    // const todoCheck = {...todos}   
-    
-    // let todoKey
-    // todos.forEach((item, index) => {
-    //     if (item.text === todo.text) {
-    //     todoKey = index
-    //   }
-    // })
-
-    // const xxx = todo.check
-    // todoCheck[todoKey].check = !xxx
-    // todos[todoKey] = todoCheck[todoKey]
-
-    //console.log(todoKey)
     this.setState({
       todos: todos
     })
